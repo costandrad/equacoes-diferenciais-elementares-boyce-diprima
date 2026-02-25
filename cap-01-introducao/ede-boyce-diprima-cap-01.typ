@@ -61,7 +61,7 @@ Em cada um dos Priblemas 1 a 4, desenhe um campo de direções para a equação 
       #lq.diagram(
         title: [Campo de direções para $d y \/ d x = 3 - 2y$],
         width: 10cm, height: 6cm,
-        xlabel: $t$, ylabel: $y$,
+        xlabel: $x$, ylabel: $y$,
         xlim: (0, 5), ylim: (0, 3),
         lq.line(
           (0%, 3/2), (100%, 3/2),
@@ -92,12 +92,12 @@ Em cada um dos Priblemas 1 a 4, desenhe um campo de direções para a equação 
       y^' = 0 => 2y - 3 = 0 => y = 3/2
     $
 
-    Note que, para $y < 3\/2$, temos $y^' > 0$, ou seja, as soluções são decrecentes; e, $y > 3\/2$, temos $y^' < 0$, ou seja, as soluções são crescentes. Portanto, a solução de equilíbrio é um repulsor, conforme ilustra o campo de direções abaixo:
+    Note que, para $y < 3\/2$, temos $y^' < 0$, ou seja, as soluções são decrecentes; e, $y > 3\/2$, temos $y^' > 0$, ou seja, as soluções são crescentes. Portanto, a solução de equilíbrio é um repulsor, conforme ilustra o campo de direções abaixo:
     #align(center)[
       #lq.diagram(
         title: [Campo de direções para $d y \/ d x = 2y - 3$],
         width: 10cm, height: 6cm,
-        xlabel: $t$, ylabel: $y$,
+        xlabel: $x$, ylabel: $y$,
         xlim: (0, 5), ylim: (0, 3),
         lq.line(
           (0%, 3/2), (100%, 3/2),
@@ -121,23 +121,111 @@ Em cada um dos Priblemas 1 a 4, desenhe um campo de direções para a equação 
   ])
 
 + $y^' = -1 - 2y$
-  #solution([])
+  #solution([
+    Determinemos a solução de equilíbrio ($y^' = 0$):
+    $
+      y^' = 0 => -1 - 2y = 0 => y = -1/2
+    $
+
+    Note que, para $y < -1\/2$, temos $y^' > 0$, ou seja, as soluções são crecentes; e, $y > -1\/2$, temos $y^' < 0$, ou seja, as soluções são decrescentes. Portanto, a solução de equilíbrio é um repulsor, conforme ilustra o campo de direções abaixo:
+    #align(center)[
+      #lq.diagram(
+        title: [Campo de direções para $d y \/ d x = -1 - 2y$],
+        width: 10cm, height: 6cm,
+        xlabel: $x$, ylabel: $y$,
+        xlim: (0, 5), ylim: (-3, 2),
+        lq.line(
+          (0%, -1/2), (100%, -1/2),
+          label: $y = -1\/2$,
+          stroke: (thickness: 1.5pt, paint: secondary-color),
+        ),
+        lq.quiver(
+          lq.arange(0, 6, step: 0.5),
+          lq.arange(-4, 4, step: 0.5),
+          (x, y) => {
+          let dydx = -1 - 2 * y
+          let norm = calc.sqrt(1 + calc.pow(dydx, 2))
+          (
+            1/norm, dydx/norm
+          )
+        },
+        scale: 0.2,
+        color: primary-color, stroke: (thickness: 1.2pt)
+        ),
+      )
+    ]
+  ])
 
 + $y^' = 1 + 2y$
-  #solution([])
+  #solution([
+    Determinemos a solução de equilíbrio ($y^' = 0$):
+    $
+      y^' = 0 => 1 + 2y = 0 => y = -1/2
+    $
+
+    Note que, para $y < -1\/2$, temos $y^' < 0$, ou seja, as soluções são decrecentes; e, $y > -1\/2$, temos $y^' > 0$, ou seja, as soluções são crescentes. Portanto, a solução de equilíbrio é um repulsor, conforme ilustra o campo de direções abaixo:
+    #align(center)[
+      #lq.diagram(
+        title: [Campo de direções para $d y \/ d x = 1 + 2y$],
+        width: 10cm, height: 6cm,
+        xlabel: $x$, ylabel: $y$,
+        xlim: (0, 5), ylim: (-3, 2),
+        lq.line(
+          (0%, -1/2), (100%, -1/2),
+          label: $y = -1\/2$,
+          stroke: (thickness: 1.5pt, paint: secondary-color),
+        ),
+        lq.quiver(
+          lq.arange(0, 6, step: 0.5),
+          lq.arange(-4, 4, step: 0.5),
+          (x, y) => {
+          let dydx = 1 + 2 * y
+          let norm = calc.sqrt(1 + calc.pow(dydx, 2))
+          (
+            1/norm, dydx/norm
+          )
+        },
+        scale: 0.2,
+        color: primary-color, stroke: (thickness: 1.2pt)
+        ),
+      )
+    ]
+  ])
 
 Em cada um dos Problemas 5 a 6, escreva uma equação diferencial na forma $d y\/d t = a y + b$ cujas soluções têm o comportamento pedido quando $t -> infinity$.
 
 #set enum(start: 5)
 + Todas as soluções se aproximam de $y = 2\/3$.
-  #solution([])
+  #solution([
+    Seja $y^*$ a solução de equilíbrio. Da resolução dos Problemas 1 a 4, podemos observar que:
+      - Para os casos em que as soluções aproximam-se da solução de equilíbrio, $y^prime > 0$ para $y < y^*$ e $y^prime < 0$ para $y > y^*$;
+      - Para os casos em que as soluções afastam-se da solução de equilíbrio, $y^prime < 0$ para $y < y^*$ e $y^prime > 0$ para $y > y^*$.
+    
+    No problema em questão, temos duas equações candidatas na forma $(d y)/(d t) = a y + b$ e cuja solução de equilíbrio é $y^* = 2/3$:
+    $
+      y^prime = 3y - 2 " (1)"\
+      y^prime = 2 - 3y " (2)"
+    $
+
+    Sem perda de generalidade, consideremos o valor $y = 0 < 2/3$. A equação candidata $(1)$ fornece $y^prime = -2 < 0$ enquanto a equação candidata $(2)$ resulta em $y^prime = 2 > 0$. 
+
+    Podemos concluir que para a equação cadndidata $(1)$, as soluções afastam-se da solução de equilíbrio e para a equação candidata $(2)$, as soluções aproximan-se da solução de equilíbrio. Assim, nossa resposta é:
+    $
+      y^prime = 2 - 3y.
+    $
+  ])
 
 + Todas as soluções se afastam de $y = 2$.
-  #solution([])
+  #solution([
+    Seguindo o raciocínio desenvolvido no problema anterior, uma equação diferencial com solução de equilíbrio igual a $2$ e da qual as demais soluções afastam-se é:
+    $
+      y^prime = 2y - 1
+    $
+  ])
 
 // + Determinie as assíntotas verticais da função $f(t) = sec(t)$.
 //   #solution([
-//     Lembrando que $sec(t) = 1/cos(t)$, a função $f(t)$ possui pontos de indeterminação nos valores de $t$ para os quais $cos(t) = 0$, ou seja, $f(t)$ não está definida para $t$ tal que:
+//     Lembrando que $sec(t) = 1/cos(t)$, a função $f(t)$ possui pontos de indeterminação nos valores de $x$ para os quais $cos(t) = 0$, ou seja, $f(t)$ não está definida para $x$ tal que:
 //     $ 
 //       cos(t) = 0 => t =  (2k + 1) pi/2, " para " k = 0, plus.minus 1, plus.minus 2, plus.minus 3, dots
 //     $
