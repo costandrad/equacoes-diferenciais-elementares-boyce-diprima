@@ -133,7 +133,7 @@ Em cada um dos Priblemas 1 a 4, desenhe um campo de direções para a equação 
         title: [Campo de direções para $d y \/ d x = -1 - 2y$],
         width: 10cm, height: 6cm,
         xlabel: $x$, ylabel: $y$,
-        xlim: (0, 5), ylim: (-3, 2),
+        xlim: (0, 5), ylim: (-2, 1),
         lq.line(
           (0%, -1/2), (100%, -1/2),
           label: $y = -1\/2$,
@@ -149,7 +149,7 @@ Em cada um dos Priblemas 1 a 4, desenhe um campo de direções para a equação 
             1/norm, dydx/norm
           )
         },
-        scale: 0.2,
+        scale: .2,
         color: primary-color, stroke: (thickness: 1.2pt)
         ),
       )
@@ -169,7 +169,7 @@ Em cada um dos Priblemas 1 a 4, desenhe um campo de direções para a equação 
         title: [Campo de direções para $d y \/ d x = 1 + 2y$],
         width: 10cm, height: 6cm,
         xlabel: $x$, ylabel: $y$,
-        xlim: (0, 5), ylim: (-3, 2),
+        xlim: (0, 5), ylim: (-2, 1),
         lq.line(
           (0%, -1/2), (100%, -1/2),
           label: $y = -1\/2$,
